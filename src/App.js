@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+require('dotenv').config()
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount(){
+    fetch("https://developers.zomato.com/api/v2.1/categories", {
+        headers: {
+        Accept: "application/json",
+        "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
+      }
+    })
+    .then(r => r.json())
+    .then(resp => {
+      console.log(resp)
+    })
+  }
+
+  render(){
+    console.log (process.env)
+    return (
+      <div className="App">
+          <p>Hello world</p>
+      </div>
+    )
+  }
 }
 
 export default App;
