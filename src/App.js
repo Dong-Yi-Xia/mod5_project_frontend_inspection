@@ -1,11 +1,13 @@
 import React from 'react'
 import './App.css';
-require('dotenv').config()
+import Page from './Page'
+
 
 class App extends React.Component {
 
+
   componentDidMount(){
-    fetch("https://developers.zomato.com/api/v2.1/categories", {
+    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20`, {
         headers: {
         Accept: "application/json",
         "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -17,11 +19,17 @@ class App extends React.Component {
     })
   }
 
+
+  
   render(){
-    console.log (process.env)
+   
+
+
     return (
       <div className="App">
           <p>Hello world</p>
+
+          <Page />
       </div>
     )
   }
