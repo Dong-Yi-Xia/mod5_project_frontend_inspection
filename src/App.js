@@ -1,23 +1,10 @@
 import React from 'react'
 import './App.css';
-import Page from './Page'
+import StorePages  from './RestaurantComponent/StorePages'
 
 
 class App extends React.Component {
 
-
-  componentDidMount(){
-    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20`, {
-        headers: {
-        Accept: "application/json",
-        "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
-      }
-    })
-    .then(r => r.json())
-    .then(resp => {
-      console.log(resp)
-    })
-  }
 
 
   
@@ -29,7 +16,7 @@ class App extends React.Component {
       <div className="App">
           <p>Hello world</p>
 
-          <Page />
+          <StorePages  />
       </div>
     )
   }

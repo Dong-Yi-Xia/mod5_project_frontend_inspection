@@ -1,10 +1,26 @@
 import React from 'react'
 
-class Page extends React.Component{
+class StorePages extends React.Component{
 
     state = {
         i : 0
     }
+
+
+
+  componentDidMount(){
+    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20`, {
+        headers: {
+        Accept: "application/json",
+        "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
+      }
+    })
+    .then(r => r.json())
+    .then(resp => {
+      console.log(resp)
+    })
+  }
+
 
 
     nextPage = () => {
@@ -25,6 +41,7 @@ class Page extends React.Component{
     
       }
     
+      
       backPage = () => {
         fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=${this.state.i-20}&count=20`, {
           headers: {
@@ -67,7 +84,7 @@ class Page extends React.Component{
 }
 
 
-export default Page
+export default StorePages 
 
 
 
