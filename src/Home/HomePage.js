@@ -1,13 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class HomePage extends React.Component {
     render(){
         return(
             <div>
-Home
+                <h1>Restaurant Inspection</h1> 
+                <p>Welcome {this.props.name}</p> 
             </div>
         )
     }
 }
 
-export default HomePage
+
+let mapStateToProps = (state) => {
+    return {
+      name: state.user.user.name
+    }
+ }
+
+
+export default connect(mapStateToProps)(HomePage)

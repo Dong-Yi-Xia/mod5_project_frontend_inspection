@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component{
 
@@ -30,8 +31,9 @@ class LoginForm extends React.Component{
         .then(r => r.json())
         .then(resp => {
            if(resp.error){
+               alert(resp.error)
                this.setState({
-                   error_message: resp.error,
+                //    error_message: resp.error,
                    username: "",
                    password: "", 
                })
@@ -47,6 +49,7 @@ class LoginForm extends React.Component{
     render(){
         return(
             <div>
+                 
                  <form onSubmit={this.handleSubmit}>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username" 
@@ -63,6 +66,9 @@ class LoginForm extends React.Component{
 
                     <input type="submit" value="Login"/>
                 </form>
+
+                <label htmlFor="Register">Don't have an account?</label>
+                <Link to="/register"> <button>Register Now</button> </Link>
             </div>
         )
     }

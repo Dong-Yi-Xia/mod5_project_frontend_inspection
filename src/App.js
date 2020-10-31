@@ -4,8 +4,9 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import StorePages  from './RestaurantComponent/StorePages'
-import NavBar from './Main/NavBar'
+import NavBarr from './Main/NavBarr'
 import LoginForm from './LogInComponent/LoginForm'
+import RegisterForm from './LogInComponent/RegisterForm'
 import HomePage from './Home/HomePage'
 import NotFound from './Main/NotFound';
 import Footer from './Main/Footer'
@@ -13,6 +14,7 @@ import Footer from './Main/Footer'
 
 
 class App extends React.Component {
+
 
 
   componentDidMount(){
@@ -39,13 +41,14 @@ class App extends React.Component {
       <div className="App">
 
         <header>
-          <NavBar/>
+          <NavBarr/>
         </header>
 
         <main>
           <Switch>
             <Route  path="/" exact component={HomePage} />
             <Route  path="/login" exact component={LoginForm} />
+            <Route  path="/register" exact component={RegisterForm} />
             <Route  path="/restaurants" exact component={StorePages} />
             <Route  component={NotFound} />
           </Switch>
@@ -62,6 +65,9 @@ class App extends React.Component {
 
 let mapStateToProps = (state) => {
    console.log(state)
+   return {
+     name: state.user.user.name
+   }
 }
 
 

@@ -6,7 +6,7 @@ let initialStateOfUser = {
   }
   
   let userReducer = (state = initialStateOfUser, action) => {
-      console.log(state)
+      console.log(action)
     switch(action.type){
       case "SET_USER_INFO":
       return{
@@ -22,6 +22,13 @@ let initialStateOfUser = {
           token: action.payload.token
         } 
   
+      case "SET_NEW_USER":
+        return{
+          ...state,
+          user: action.payload.user,
+          token: action.payload.token
+        }
+
       default:
         return state
     }
