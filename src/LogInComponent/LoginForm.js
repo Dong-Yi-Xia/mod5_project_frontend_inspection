@@ -59,6 +59,7 @@ class LoginForm extends React.Component{
                         <Form.Control type="text" id="username" name="username" 
                             onChange={this.handleChange} 
                             value={this.state.username} 
+                            required
                         />
                     </Form.Group>
 
@@ -67,6 +68,7 @@ class LoginForm extends React.Component{
                         <Form.Control  type="password" id="password" name="password" 
                             onChange={this.handleChange}
                             value={this.state.password}
+                            required
                         />
                     </Form.Group>
                     

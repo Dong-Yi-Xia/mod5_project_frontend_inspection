@@ -68,15 +68,16 @@ class StorePages extends React.Component{
 
         return( 
             <div>
+              <h1 id="top">Lisiting </h1>
                 <RestaurantsContainer />
 
                 {this.state.i === 0 
                 ? 
-                 <button className="nextButton" onClick={this.nextPage}> Next</button>
+                <a href="#top"><button className="nextButton" onClick={this.nextPage}> Next</button></a> 
                 : 
                 <div>
-                    <button className="backButton" onClick={this.backPage}> back</button>
-                    <button className="nextButton" onClick={this.nextPage}> Next</button>
+                   <a href="#top"><button className="backButton" onClick={this.backPage}> back</button></a>
+                   <a href="#top"><button className="nextButton" onClick={this.nextPage}> Next</button></a> 
                 </div>
                 }
 

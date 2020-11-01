@@ -8,7 +8,7 @@ class Restaurant extends React.Component{
 
     render(){
         // console.log(this.props.restaurant.restaurant)
-        let {id, name, thumb, cuisines} = this.props.restaurant.restaurant
+        let {name, thumb, cuisines} = this.props.restaurant.restaurant
         let {address, latitude, longitude} = this.props.restaurant.restaurant.location
         return(
             <>

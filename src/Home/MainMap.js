@@ -35,7 +35,9 @@ class MainMap extends React.Component{
           });
 
         return (
-            <Map
+            <div>
+                Map Goes Here
+            <Map className="mainMap"
                 style="mapbox://styles/mapbox/streets-v9"
                 containerStyle={{
                     height: '50vh',
@@ -46,6 +48,7 @@ class MainMap extends React.Component{
                     <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
                 </Layer>
             </Map>
+            </div>
         )
     }
 }

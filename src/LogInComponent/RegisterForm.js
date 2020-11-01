@@ -72,6 +72,7 @@ class RegisterForm extends React.Component{
                         <Form.Control  type="password" id="password" name="password" 
                             onChange={this.handleChange}
                             value={this.state.password}
+                            required
                         />
                     </Form.Group>
 
@@ -80,6 +81,7 @@ class RegisterForm extends React.Component{
                         <Form.Control type="text" id="name" name="name" 
                             onChange={this.handleChange} 
                             value={this.state.name} 
+                            required
                         />
                     </Form.Group>
 
@@ -88,6 +90,7 @@ class RegisterForm extends React.Component{
                         <Form.Control type="text" id="title" name="title" 
                             onChange={this.handleChange} 
                             value={this.state.title} 
+                            required
                         />
                     </Form.Group>
                     

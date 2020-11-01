@@ -122,3 +122,8 @@ footer{
   display: block;
   float: left;
 }
+
+.mainMap {
+  border: 2px solid forestgreen;
+  margin: auto;
+}

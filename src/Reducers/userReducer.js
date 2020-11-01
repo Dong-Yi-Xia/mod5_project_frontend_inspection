@@ -32,6 +32,12 @@ let initialStateOfUser = {
           inspections: [...state.inspections, action.payload.user.inspections]
         }
 
+      case "SET_INSPECTION_INFO":
+        return{
+          ...state,
+          inspections: [...state.inspections, action.payload]
+        }  
+
       default:
         return state
     }

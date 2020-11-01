@@ -27,6 +27,7 @@ class RestaurantsContainer extends React.Component{
 }
 
 let mapStateToProps = (state) => {
+    // console.log(state.restaurantRR.restaurants)
     return{
         restaurantsArray: state.restaurantRR.restaurants
     }

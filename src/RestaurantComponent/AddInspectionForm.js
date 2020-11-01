@@ -27,6 +27,7 @@ class AddInspectionForm extends React.Component{
         // }
 
         evt.preventDefault()
+        console.log(this)
         // console.log(this.props.restaurantInfo)
         fetch('/inspections', {
             method: "POST",
@@ -48,7 +49,12 @@ class AddInspectionForm extends React.Component{
         })
             .then(r => r.json())
             .then(newInspectionObj => {
-                console.log(newInspectionObj)
+                alert("Inspection has been added")
+                this.props.setInspectionInfo(newInspectionObj)
+                this.setState({
+                    date: "",
+                    time: ""
+                })
             })
     }
 
@@ -63,12 +69,14 @@ class AddInspectionForm extends React.Component{
                         name="date" 
                         value={this.state.date}
                         onChange={this.handleChange}
+                        required
                     />
                     <input
                         type="time"
                         name="time"
                         value={this.state.time}
                         onChange={this.handleChange}
+                        required
                     />
                         <button class="ui primary button" type="submit">Add to Inspection</button>
                   </div>
@@ -85,4 +93,15 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(AddInspectionForm)
+let setInspectionInfo = (inspectionInfo) => {
+    return {
+        type: "SET_INSPECTION_INFO",
+        payload: inspectionInfo
+    }
+}
+
+let mapDispatchToProps = {
+    setInspectionInfo
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddInspectionForm)
