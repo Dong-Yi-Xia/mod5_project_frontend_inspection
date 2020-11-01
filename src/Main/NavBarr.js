@@ -41,7 +41,7 @@ class NavBarr extends React.Component{
 
 let mstp = state => {
     return{
-        token: state.user.token
+        token: state.userRR.token
     }
 }
 

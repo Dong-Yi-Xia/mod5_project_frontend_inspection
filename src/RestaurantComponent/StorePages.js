@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import RestaurantsContainer from './RestaurantsContainer'
 
 class StorePages extends React.Component{
 
@@ -17,7 +19,7 @@ class StorePages extends React.Component{
     })
     .then(r => r.json())
     .then(resp => {
-      console.log(resp)
+      this.props.setRestaurants(resp)
     })
   }
 
@@ -33,6 +35,7 @@ class StorePages extends React.Component{
         .then(r => r.json())
         .then(resp => {
           console.log(resp)
+          this.props.setRestaurants(resp)
         })
         
         this.setState({
@@ -51,7 +54,7 @@ class StorePages extends React.Component{
         })
         .then(r => r.json())
         .then(resp => {
-          console.log(resp)
+          this.props.setRestaurants(resp)
         })
         
         this.setState({
@@ -65,14 +68,15 @@ class StorePages extends React.Component{
 
         return( 
             <div>
+                <RestaurantsContainer />
 
                 {this.state.i === 0 
                 ? 
-                 <button onClick={this.nextPage}> Next</button>
+                 <button className="nextButton" onClick={this.nextPage}> Next</button>
                 : 
                 <div>
-                    <button onClick={this.backPage}> back</button>
-                    <button onClick={this.nextPage}> Next</button>
+                    <button className="backButton" onClick={this.backPage}> back</button>
+                    <button className="nextButton" onClick={this.nextPage}> Next</button>
                 </div>
                 }
 
@@ -84,7 +88,19 @@ class StorePages extends React.Component{
 }
 
 
-export default StorePages 
+let setRestaurants = (restaurantsArray) => {
+  return {
+    type:"SET_RESTAURANTS",
+    payload: restaurantsArray
+  }
+}
+
+let mapDispatchToProps = {
+  setRestaurants: setRestaurants
+}
+
+
+export default connect(null, mapDispatchToProps)(StorePages )
 
 
 

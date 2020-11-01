@@ -58,10 +58,46 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin: 10px;
+  padding-bottom: 10px;
+  background-color: #3b3f42;
+  color: rgba(255,255,255,.5)
 }
 
 .navBar {
   list-style-type: none;
 }
 
+.loginformContainer{
+  display: flex;
+  height: 100%;
+  margin-top: 10%;
+}
+
+.loginform {
+  width: 30%;
+  margin: auto;
+  border: solid 2px black;
+  padding: 5%;
+}
+
+.registerSection{
+  margin: 10px;
+}
+
+.singleRestaurant {
+  margin: 20px;
+  border: 2px solid black;
+  padding: 5px;
+  height: 300px;
+  width: 250px;
+}
+
+.nextButton{
+  float: right;
+  width: 40%;
+}
+
+.backButton{
+  float: left;
+  width: 40%;
+}

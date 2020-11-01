@@ -3,7 +3,8 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom' 
 import { connect } from 'react-redux'
 
-import StorePages  from './RestaurantComponent/StorePages'
+import StorePages from './RestaurantComponent/StorePages'
+import InspectionsPage from './InspectionComponent/InspectionsPage'
 import NavBarr from './Main/NavBarr'
 import LoginForm from './LogInComponent/LoginForm'
 import RegisterForm from './LogInComponent/RegisterForm'
@@ -49,6 +50,7 @@ class App extends React.Component {
             <Route  path="/" exact component={HomePage} />
             <Route  path="/login" exact component={LoginForm} />
             <Route  path="/register" exact component={RegisterForm} />
+            <Route  path="/inspections" exact component={InspectionsPage} />
             <Route  path="/restaurants" exact component={StorePages} />
             <Route  component={NotFound} />
           </Switch>
@@ -65,9 +67,6 @@ class App extends React.Component {
 
 let mapStateToProps = (state) => {
    console.log(state)
-   return {
-     name: state.user.user.name
-   }
 }
 
 

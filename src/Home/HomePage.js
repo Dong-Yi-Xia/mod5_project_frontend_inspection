@@ -15,7 +15,7 @@ class HomePage extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-      name: state.user.user.name
+      name: state.userRR.user.name
     }
  }
 

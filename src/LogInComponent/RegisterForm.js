@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 class RegisterForm extends React.Component{
 
@@ -54,35 +55,44 @@ class RegisterForm extends React.Component{
 
     render(){
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" 
-                        onChange={this.handleChange} 
-                        value={this.state.username}
+            <div className="loginformContainer">
+
+                <Form className="loginform" onSubmit={this.handleSubmit}>
+                    <h3> REGISTER </h3>
+                    <Form.Group >
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="text" id="username" name="username" 
+                            onChange={this.handleChange} 
+                            value={this.state.username} 
                         />
+                    </Form.Group>
 
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" 
-                        onChange={this.handleChange}
-                        value={this.state.password}
-                    />
+                    <Form.Group >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control  type="password" id="password" name="password" 
+                            onChange={this.handleChange}
+                            value={this.state.password}
+                        />
+                    </Form.Group>
 
-                    <label htmlFor="name">name:</label>
-                    <input type="text" id="name" name="name" 
-                        onChange={this.handleChange}
-                        value={this.state.name}
-                    />
+                    <Form.Group >
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" id="name" name="name" 
+                            onChange={this.handleChange} 
+                            value={this.state.name} 
+                        />
+                    </Form.Group>
 
-                    <label htmlFor="title">title:</label>
-                    <input type="text" id="title" name="title" 
-                        onChange={this.handleChange}
-                        value={this.state.title}
-                    />
-
-                    <button onSubmit={this.handleSubmit} type="submit"> Submit </button> 
-                </form>
-
+                    <Form.Group >
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="text" id="title" name="title" 
+                            onChange={this.handleChange} 
+                            value={this.state.title} 
+                        />
+                    </Form.Group>
+                    
+                    <Button variant="primary" type="submit"> Submit </Button>
+                </Form>
 
             </div>
         )

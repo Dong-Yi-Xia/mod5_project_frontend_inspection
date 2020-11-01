@@ -6,7 +6,7 @@ let initialStateOfUser = {
   }
   
   let userReducer = (state = initialStateOfUser, action) => {
-      console.log(action)
+      // console.log(action)
     switch(action.type){
       case "SET_USER_INFO":
       return{

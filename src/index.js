@@ -9,12 +9,14 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux' 
 
 import userReducer from './Reducers/userReducer'
+import restaurantReducer from './Reducers/restaurantReducer'
 
 
 
 
 let allReducerCombined = {
-  user: userReducer
+  userRR: userReducer,
+  restaurantRR: restaurantReducer
 }
 
 
