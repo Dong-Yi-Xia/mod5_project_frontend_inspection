@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import MainMap from './MainMap'
 
 class HomePage extends React.Component {
     render(){
@@ -7,6 +8,7 @@ class HomePage extends React.Component {
             <div>
                 <h1>Restaurant Inspection</h1> 
                 <p>Welcome {this.props.name}</p> 
+                <MainMap/>
             </div>
         )
     }

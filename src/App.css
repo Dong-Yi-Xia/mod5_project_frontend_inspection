@@ -85,11 +85,17 @@ footer{
 }
 
 .singleRestaurant {
+  display: grid;
   margin: 20px;
   border: 2px solid black;
   padding: 5px;
   height: 300px;
   width: 250px;
+  float: left;
+}
+
+.singleRestaurant img{
+  margin: auto;
 }
 
 .nextButton{
@@ -100,4 +106,19 @@ footer{
 .backButton{
   float: left;
   width: 40%;
+}
+
+.gridCol {
+  border: solid 2px black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gridRow {
+  border: solid 2px red;
+}
+
+.singleRestaurant-SideInfo{
+  display: block;
+  float: left;
 }

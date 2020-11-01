@@ -2,7 +2,8 @@
 
 let initialStateOfUser = {
     user: "",
-    token: ""
+    token: "",
+    inspections: []
   }
   
   let userReducer = (state = initialStateOfUser, action) => {
@@ -12,7 +13,8 @@ let initialStateOfUser = {
       return{
           ...state,
           user: action.payload.user,
-          token: action.payload.token
+          token: action.payload.token,
+          inspections: [...state.inspections, action.payload.user.inspections]
       }
 
       case "SET_USER_LOGOUT":
@@ -26,7 +28,8 @@ let initialStateOfUser = {
         return{
           ...state,
           user: action.payload.user,
-          token: action.payload.token
+          token: action.payload.token,
+          inspections: [...state.inspections, action.payload.user.inspections]
         }
 
       default:

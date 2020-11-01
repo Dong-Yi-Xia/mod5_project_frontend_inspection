@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { BrowserRouter } from 'react-router-dom'
 import { createStore, combineReducers } from 'redux'
