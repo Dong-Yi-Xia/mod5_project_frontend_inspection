@@ -38,6 +38,20 @@ let initialStateOfUser = {
           inspections: [...state.inspections, action.payload]
         }  
 
+      case "UPDATE_INSPECTION_DATETIME":
+        let updateArray = state.inspections[0].map(inspect => {
+            if(inspect.id === action.payload.id){
+              return action.payload
+            } else {
+              return inspect
+            }
+        })
+  
+        return{
+          ...state,
+          inspections: [updateArray]
+        }  
+
       default:
         return state
     }

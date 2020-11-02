@@ -15,7 +15,30 @@ class InspectionContainer extends React.Component{
 
         return (
             <div>     
-                {inspectionComponent}
+                <table className="ui celled striped padded table">
+                    <tbody>
+                        <tr>
+                            <th>
+                               <h3 className="ui center aligned header">Date</h3>
+                            </th>
+                            <th>
+                              <h3 className="ui center aligned header">Time</h3>
+                            </th>
+                            <th>
+                              <h3 className="ui center aligned header">Restaurant</h3>
+                            </th>
+                            <th>
+                              <h3 className="ui center aligned header">Location</h3>
+                            </th>
+                            <th>
+                              <h3 className="ui center aligned header">Edit</h3>
+                            </th>
+                        </tr>
+                        {inspectionComponent}
+                    </tbody>
+              </table>
+
+              
             </div>
         );
     }
