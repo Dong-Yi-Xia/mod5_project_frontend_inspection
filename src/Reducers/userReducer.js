@@ -46,11 +46,21 @@ let initialStateOfUser = {
               return inspect
             }
         })
-  
         return{
           ...state,
           inspections: [updateArray]
         }  
+
+      case "DELETE_INSPECTION":
+        let deletedArray = state.inspections[0].filter(inspect => {
+          return inspect.id !== action.payload.id
+        })
+        return {
+          ...state,
+          inspections: [deletedArray]
+        }
+      
+
 
       default:
         return state

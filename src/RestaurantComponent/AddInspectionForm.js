@@ -49,12 +49,20 @@ class AddInspectionForm extends React.Component{
         })
             .then(r => r.json())
             .then(newInspectionObj => {
-                alert("Inspection has been added")
-                this.props.setInspectionInfo(newInspectionObj)
-                this.setState({
-                    date: "",
-                    time: ""
-                })
+                if(newInspectionObj.error){
+                    alert(newInspectionObj.error)
+                    this.setState({
+                        date: "",
+                        time: ""
+                    })
+                } else {
+                    alert("Inspection has been added")
+                    this.props.setInspectionInfo(newInspectionObj)
+                    this.setState({
+                        date: "",
+                        time: ""
+                    })
+                }
             })
     }
 

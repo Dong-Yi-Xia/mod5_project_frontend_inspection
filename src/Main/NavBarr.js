@@ -22,10 +22,13 @@ class NavBarr extends React.Component{
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/restaurants">Restaurants</Nav.Link>
-                    <Nav.Link href="inspections">UpComing-Inspections</Nav.Link>
 
                     {this.props.token ? 
-                    <Nav.Link onClick={this.handleLogout} href="login"> LogOut </Nav.Link>:
+                    <>
+                    <Nav.Link href="inspections">UpComing-Inspections</Nav.Link>
+                    <Nav.Link onClick={this.handleLogout} href="login"> LogOut </Nav.Link>
+                    </>
+                    :
                     <Nav.Link href="/login"> LogIn  </Nav.Link>
                     }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import ReportModal from '../ReportComponent/ReportModal'
 
 
 class Inspection extends React.Component{
@@ -15,7 +16,6 @@ class Inspection extends React.Component{
         this.setState({
             hide: !this.state.hide
         })
-        console.log(this.props.inspection)
     }
 
     handleChange = (evt) => {
@@ -58,14 +58,13 @@ class Inspection extends React.Component{
         })
         .then(r => r.json())
         .then(inspectionDelete => {
-            console.log(inspectionDelete)
+            this.props.deletedInspection(this.props.inspection)
         })
     }
 
-
-
+    
     render() {
-        // console.log(this.props.inspection)
+        console.log(this.props.inspection)
         let {date, nicetime} = this.props.inspection
         let {name, address} = this.props.inspection.restaurant
         return (
@@ -74,12 +73,19 @@ class Inspection extends React.Component{
                     <td> {date}</td>
                     <td> {nicetime}</td>
                     <td> {name}</td>
-                    <td> {address}</td>              
+                    <td> {address}</td>    
+                    <td> 
+                        {/* <button className="ui button" onClick={this.showModal}> 📋 </button> */}
+                        <ReportModal storeName={this.props.inspection.restaurant.name}
+                                    reports={this.props.inspection.reports}
+                        />
+                    </td>
                     <td>
                         <button className="ui button" onClick={this.handleUpdate}> 🛠 </button> 
-                        <button className="ui button" onClick={this.handleDelete}> X </button> 
+                        <button className="ui button" onClick={this.handleDelete}> ❌ </button> 
                     </td>
                 </tr>
+
                 <div>
                 {this.state.hide ?
                  null 
@@ -118,8 +124,16 @@ let updatedInspection = (update) => {
     }
 }
 
+let deletedInspection = (deleted) => {
+    return {
+        type: "DELETE_INSPECTION",
+        payload: deleted
+    }
+}
+
 let mapDispatchToProps = {
-    updatedInspection
+    updatedInspection,
+    deletedInspection
 }
 
 

@@ -127,3 +127,14 @@ footer{
   border: 2px solid forestgreen;
   margin: auto;
 }
+
+.inspectionContainer{
+  width: 80%;
+  margin: auto;
+}
+
+.eachReport {
+  border: 2px solid black;
+  margin-bottom: 5px;
+  padding: 10px;
+}

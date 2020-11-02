@@ -14,7 +14,7 @@ class InspectionContainer extends React.Component{
         })
 
         return (
-            <div>     
+            <div className="inspectionContainer">     
                 <table className="ui celled striped padded table">
                     <tbody>
                         <tr>
@@ -29,6 +29,9 @@ class InspectionContainer extends React.Component{
                             </th>
                             <th>
                               <h3 className="ui center aligned header">Location</h3>
+                            </th>
+                            <th>
+                              <h3 className="ui center aligned header">Reports</h3>
                             </th>
                             <th>
                               <h3 className="ui center aligned header">Edit</h3>
