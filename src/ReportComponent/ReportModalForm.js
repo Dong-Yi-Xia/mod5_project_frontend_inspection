@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
-import Button from 'react-bootstrap/Button'
+import React,{useState} from 'react'
 import Modal from 'react-bootstrap/Modal'
-import ReportContainer from './ReportContainer'
+import Button from 'react-bootstrap/Button'
+import ReportForm from './ReportForm'
 
 
 
-function ReportModal(props) {
+
+function ReportModalForm(props) {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -14,17 +15,16 @@ function ReportModal(props) {
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
-          Launch My Reports
+          Edit My Report
         </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-             <Modal.Title>{props.storeName} Report</Modal.Title>
+            <Modal.Title>Report Form</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-             My Reports . . . 
-                <ReportContainer reports={props.reports}/>
-
+            Woohoo, you're reading this text in a modal!
+            <ReportForm report={props.report}/>
 
           </Modal.Body>
           <Modal.Footer>
@@ -32,14 +32,12 @@ function ReportModal(props) {
               Close
             </Button>
             <Button variant="primary" onClick={handleClose}>
-              Add New Report
+              Save Changes
             </Button>
           </Modal.Footer>
         </Modal>
       </>
     );
   }
-
-
-
-  export default ReportModal
+  
+  export default ReportModalForm

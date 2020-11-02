@@ -1,12 +1,11 @@
 import React from 'react'
+import ReportModalForm from './ReportModalForm'
+
+
 
 class Report extends React.Component {
 
-    state = {
-        grade: "",
-        note: "",
-        niceCreateOn: ""
-    }
+  
 
     render() {
         // console.log(this.props.report)
@@ -19,7 +18,7 @@ class Report extends React.Component {
                     <p>{niceCreateOn}</p>  
                     <button> Click</button>
                 </div>
-                
+                <ReportModalForm report={this.props.report}/>
             </div>
         );
     }
