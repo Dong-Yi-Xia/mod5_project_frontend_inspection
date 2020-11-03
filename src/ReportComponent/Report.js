@@ -16,7 +16,6 @@ class Report extends React.Component {
                     <p>Grade: {grade}</p>
                     <p>note: {note}</p>
                     <p>{niceCreateOn}</p>  
-                    <button> Click</button>
                 </div>
                 <ReportModalForm report={this.props.report}/>
             </div>

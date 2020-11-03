@@ -1,5 +1,6 @@
 import React from 'react'
 import Report from './Report'
+import {connect} from 'react-redux'
 
 class ReportContainer extends React.Component {
 
@@ -18,5 +19,11 @@ class ReportContainer extends React.Component {
 }
 
 
+let mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        reports: state.reportRR.reports
+    }
+}
 
-export default ReportContainer
+export default connect(mapStateToProps)(ReportContainer)

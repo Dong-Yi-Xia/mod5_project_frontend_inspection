@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 
 import userReducer from './Reducers/userReducer'
 import restaurantReducer from './Reducers/restaurantReducer'
+import reportReducer from './Reducers/reportReducer'
 
 
 
@@ -19,7 +20,8 @@ import restaurantReducer from './Reducers/restaurantReducer'
 
 let allReducerCombined = {
   userRR: userReducer,
-  restaurantRR: restaurantReducer
+  restaurantRR: restaurantReducer,
+  reportRR: reportReducer
 }
 
 

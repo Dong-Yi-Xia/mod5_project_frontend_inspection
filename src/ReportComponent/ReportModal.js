@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import ReportContainer from './ReportContainer'
+import {connect} from 'react-redux'
+import AddFormModal from './AddFormModal'
 
 
 
@@ -9,8 +11,12 @@ function ReportModal(props) {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+      setShow(true)
+      props.setReports(props.reports) 
+    }
   
+    // console.log(props.reports)
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
@@ -23,7 +29,7 @@ function ReportModal(props) {
           </Modal.Header>
           <Modal.Body>
              My Reports . . . 
-                <ReportContainer reports={props.reports}/>
+                <ReportContainer />
 
 
           </Modal.Body>
@@ -31,8 +37,8 @@ function ReportModal(props) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Add New Report
+            <Button variant="primary" >
+               <AddFormModal />
             </Button>
           </Modal.Footer>
         </Modal>
@@ -40,6 +46,15 @@ function ReportModal(props) {
     );
   }
 
+  let setReports = (reportsArr) => {
+    return {
+      type: "SET_SINGLE_INSPECTION_REPORTS",
+      payload: reportsArr
+    }
+  }
 
+  let mapDispatchToProps = {
+    setReports
+  }
 
-  export default ReportModal
+  export default connect(null,mapDispatchToProps)(ReportModal)

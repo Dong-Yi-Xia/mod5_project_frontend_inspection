@@ -138,3 +138,7 @@ footer{
   margin-bottom: 5px;
   padding: 10px;
 }
+
+.reportEditForm textarea{
+  width: 100%;
+}
