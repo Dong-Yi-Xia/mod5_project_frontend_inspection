@@ -10,10 +10,7 @@ function AddFormModal() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let handleSubmit = (info) => {
-        console.log(info)
-    }
-  
+    
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
@@ -26,16 +23,13 @@ function AddFormModal() {
           </Modal.Header>
           <Modal.Body>
               Woohoo, you're reading this text in a modal!
-              <AddReportForm onSubmit={handleSubmit}/>
+              <AddReportForm handleClose={handleClose}/>
         
         
          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
-            </Button>
-            <Button type="submit" variant="primary" onClick={handleClose}>
-              Add New
             </Button>
           </Modal.Footer>
         </Modal>

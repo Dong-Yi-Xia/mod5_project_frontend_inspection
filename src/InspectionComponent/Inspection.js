@@ -78,6 +78,7 @@ class Inspection extends React.Component{
                         {/* <button className="ui button" onClick={this.showModal}> 📋 </button> */}
                         <ReportModal storeName={this.props.inspection.restaurant.name}
                                     reports={this.props.inspection.reports}
+                                    inspection={this.props.inspection}
                         />
                     </td>
                     <td>

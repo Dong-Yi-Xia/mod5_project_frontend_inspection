@@ -2,7 +2,8 @@
 
 let initialStateOfReport = {
     reports: [],
-    singleReport: ""
+    singleReport: "",
+    currentInspection: ""
   }
   
   let reportReducer = (state = initialStateOfReport, action) => {
@@ -31,6 +32,27 @@ let initialStateOfReport = {
              ...state,
              reports: updateArr
          }    
+
+      case "SET_CURRENT_INSPECTION":   
+          return{
+             ...state,
+             currentInspection: action.payload
+           } 
+        
+      case "SET_NEW_REPORT":
+          return{
+              ...state,
+              reports: [...state.reports, action.payload]
+          }     
+
+      case "DELETED_REPORT":
+          let deletedNewArr = state.reports.filter(report => {
+              return report.id !== action.payload.id
+          })
+          return{
+              ...state,
+              reports: deletedNewArr
+          }    
 
       default:
         return state

@@ -14,9 +14,10 @@ function ReportModal(props) {
     const handleShow = () => {
       setShow(true)
       props.setReports(props.reports) 
+      props.setSingleInspection(props.inspection)
     }
   
-    // console.log(props.reports)
+    // console.log(props.inspection)
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
@@ -53,8 +54,16 @@ function ReportModal(props) {
     }
   }
 
+  let setSingleInspection = (inspect) => {
+    return {
+      type: "SET_CURRENT_INSPECTION",
+      payload: inspect
+    }
+  }
+
   let mapDispatchToProps = {
-    setReports
+    setReports,
+    setSingleInspection
   }
 
   export default connect(null,mapDispatchToProps)(ReportModal)
