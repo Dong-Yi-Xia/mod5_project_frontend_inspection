@@ -30,7 +30,6 @@ let initialStateOfUser = {
           user: action.payload.user,
           token: action.payload.token,
           inspections: [...state.inspections, action.payload.user.inspections],
-          reports: [...state.inspections.reports, action.payload.user.inspections.reports]
         }
 
       case "SET_INSPECTION_INFO":

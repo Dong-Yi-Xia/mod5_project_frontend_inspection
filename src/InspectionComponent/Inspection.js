@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ReportModal from '../ReportComponent/ReportModal'
+import Button from 'react-bootstrap/Button'
 
 
 class Inspection extends React.Component{
@@ -83,7 +84,7 @@ class Inspection extends React.Component{
                     </td>
                     <td>
                         <button className="ui button" onClick={this.handleUpdate}> 🛠 </button> 
-                        <button className="ui button" onClick={this.handleDelete}> ❌ </button> 
+                        <Button variant="danger" onClick={this.handleDelete}> ❌ Delete</Button> 
                     </td>
                 </tr>
 
