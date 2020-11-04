@@ -7,7 +7,7 @@ class AddReportForm extends React.Component{
 
     state = {
             grade: "",
-            note: ""
+            note: ""    
         }
 
     handleChange = (evt) => {
@@ -40,12 +40,27 @@ class AddReportForm extends React.Component{
     }
 
     render() {
+        // console.log(this.state)
         return (
              <div className="reportEditForm">
                 <form onSubmit={this.handleSubmit}>
                     <label>Grade</label>
-                    <input type="text" name="grade" value={this.state.grade} onChange={this.handleChange} required/>
-                    <textarea type="text" name="note" placeholder="notes" value={this.state.note} onChange={this.handleChange} required/>
+                    {/* <input type="text" name="grade" value={this.state.grade} onChange={this.handleChange} required/> */}       
+                    <select name="grade" value={this.state.grade} onChange={this.handleChange} required>
+                        <option value=""></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+
+                    <textarea type="text" name="note" 
+                    placeholder="notes" value={this.state.note} 
+                    onChange={this.handleChange} required
+                    rows="10" cols="50"
+                    />
                     <Button variant="primary" type="submit"> Add Report </Button>
                 </form>
             </div>

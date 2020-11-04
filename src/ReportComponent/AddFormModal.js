@@ -22,7 +22,7 @@ function AddFormModal() {
             <Modal.Title>Add A New Report</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              Woohoo, you're reading this text in a modal!
+              
               <AddReportForm handleClose={handleClose}/>
         
         

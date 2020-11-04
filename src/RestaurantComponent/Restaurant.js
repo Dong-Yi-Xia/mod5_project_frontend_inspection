@@ -12,22 +12,14 @@ class Restaurant extends React.Component{
         let {address, latitude, longitude} = this.props.restaurant.restaurant.location
         return(
             <>
-            <Col className="gridCol" xs={5} md={5} lg={5}>   
-                <div className="singleRestaurant">
-                    {name}
+            <Col className="gridCol"  md={{ span: 4, offset: 1 }} >   
+                    <h3>{name}</h3>
                     <img src={thumb} alt={name}/>
-                    {address}
-                </div>
-                <div className="singleRestaurant-SideInfo">
-                     <p>Type of cuisines: {cuisines}</p>
-
+                    <p>{address}</p>
+                     <p className="cuisine-info">Type of cuisines: {cuisines}</p>
                     <AddInspectionForm restaurantInfo={this.props.restaurant.restaurant}/>
-
-                </div>
             </Col>
-            <Col className="gridCol" md={{ span: 5, offset: 1 }}>
-                Map Image Goes Here
-            </Col>
+          
             </>
         )
     }

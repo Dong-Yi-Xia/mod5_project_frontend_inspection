@@ -6,7 +6,7 @@ class HomePage extends React.Component {
     render(){
         return(
             <div>
-                <h1>Restaurant Inspection</h1> 
+                <h1>NYC Restaurant Inspection</h1> 
                 <p>Welcome {this.props.name}</p> 
                 <MainMap/>
             </div>

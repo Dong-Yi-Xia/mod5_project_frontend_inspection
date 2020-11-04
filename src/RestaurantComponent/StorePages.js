@@ -68,7 +68,7 @@ class StorePages extends React.Component{
 
         return( 
             <div>
-              <h1 id="top">Lisiting </h1>
+              <h1 id="top">NYC Restaurant Lisiting </h1>
                 <RestaurantsContainer />
 
                 {this.state.i === 0 

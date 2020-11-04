@@ -6,10 +6,15 @@ import uuid from 'react-uuid'
 
 class InspectionContainer extends React.Component{
 
- 
+
 
     render() {
-        let inspectionComponent = this.props.inspections.map(inspectionObj => {
+
+        let sortedByDate = this.props.inspections.sort( (numA, numB) =>{
+          return new Date(numA.date) - new Date(numB.date)
+        })
+
+        let inspectionComponent = sortedByDate.map(inspectionObj => {
             return <Inspection key={uuid()} inspection={inspectionObj}/>
         })
 
@@ -40,8 +45,6 @@ class InspectionContainer extends React.Component{
                         {inspectionComponent}
                     </tbody>
               </table>
-
-              
             </div>
         );
     }

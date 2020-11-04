@@ -65,7 +65,7 @@ class Inspection extends React.Component{
 
     
     render() {
-        console.log(this.props.inspection)
+        // console.log(this.props.inspection)
         let {date, nicetime} = this.props.inspection
         let {name, address} = this.props.inspection.restaurant
         return (
@@ -83,7 +83,7 @@ class Inspection extends React.Component{
                         />
                     </td>
                     <td>
-                        <button className="ui button" onClick={this.handleUpdate}> 🛠 </button> 
+                        <Button variant="warning" onClick={this.handleUpdate}> 🛠 </Button> 
                         <Button variant="danger" onClick={this.handleDelete}> ❌ Delete</Button> 
                     </td>
                 </tr>

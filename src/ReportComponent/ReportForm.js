@@ -53,7 +53,17 @@ class ReportForm extends React.Component{
                 <label>{this.props.report.niceCreateOn}</label>
                 <form onSubmit={this.handleSubmit}>
                     <label>Grade</label>
-                    <input type="text" name="grade" value={this.state.grade} onChange={this.handleChange} required/>
+                    {/* <input type="text" name="grade" value={this.state.grade} onChange={this.handleChange} required/> */}
+                    <select name="grade" id="grade" value={this.state.grade} onChange={this.handleChange} required>
+                        <option value=""></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+                    
                     <textarea type="text" name="note" value={this.state.note} onChange={this.handleChange} required/>
                     <Button variant="primary" type="submit"> Save Changes </Button>
                 </form>

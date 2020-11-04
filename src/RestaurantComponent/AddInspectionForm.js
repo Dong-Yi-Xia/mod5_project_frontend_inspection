@@ -71,7 +71,7 @@ class AddInspectionForm extends React.Component{
         return (
             <div>
                 <form className="inspectionForm ui form" onSubmit={this.handleSubmit}>
-                  <div className="inline fields">
+                
                     <input 
                         type="date" 
                         name="date" 
@@ -87,7 +87,7 @@ class AddInspectionForm extends React.Component{
                         required
                     />
                         <button class="ui primary button" type="submit">Add to Inspection</button>
-                  </div>
+                 
                 </form>
             </div>
         );
