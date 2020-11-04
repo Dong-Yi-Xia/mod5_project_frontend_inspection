@@ -1,6 +1,8 @@
-import React from 'react'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import React, {useState} from 'react'
+import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
+// import mapboxgl from 'mapbox-gl';
+
 
 
 class MainMap extends React.Component{
@@ -30,27 +32,38 @@ class MainMap extends React.Component{
 
     render() {
          const Map = ReactMapboxGl({
-            accessToken:
-              'pk.eyJ1IjoiZmFicmljOCIsImEiOiJjaWc5aTV1ZzUwMDJwdzJrb2w0dXRmc2d0In0.p6GGlfyV-WksaDV_KdN27A'
-          });
+            accessToken: "pk.eyJ1IjoiY3JhdmU0Y29kZSIsImEiOiJja2dvN3VjN3cwOGptMzJwZ3plYmtidjU4In0.HmurhTxMmNKf6fQY9XUbKw"
+        });
 
+          const zoom = [8]
+        //Must be in longitude, latitude coordinate order   
         return (
             <div>
-                Map Goes Here
-            <Map className="mainMap"
-                style="mapbox://styles/mapbox/streets-v9"
-                containerStyle={{
-                    height: '50vh',
-                    width: '50vw'
-                }}
+                <Map
+                    style="mapbox://styles/mapbox/streets-v9"
+                    center={ [-73.985130, 40.758896] }
+                    zoom={[14]}
+                    containerStyle={{
+                        height: '70vh',
+                        width: '70vw',
+                    }}
                 >
                 <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                    <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+                    <Feature coordinates={[-73.985130, 40.758896]} />
                 </Layer>
-            </Map>
+
+                <Marker
+                coordinates={[-73.985130, 40.758896]}
+                anchor="bottom">
+                <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                </Marker>
+
+                </Map>;
+                {/* <div ref={el => this.mapContainer = el} /> */}
             </div>
         )
     }
 }
 
 export default MainMap 
+
