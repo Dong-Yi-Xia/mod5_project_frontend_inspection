@@ -4,6 +4,7 @@ import ReportModal from '../ReportComponent/ReportModal'
 import Button from 'react-bootstrap/Button'
 
 
+
 class Inspection extends React.Component{
 
     state ={
@@ -42,6 +43,7 @@ class Inspection extends React.Component{
         .then(r => r.json())
         .then(InspectUpdate => {
             this.props.updatedInspection(InspectUpdate)
+            alert("SUCCESSFULLY BEEN UPDATED")
         })
     }
 

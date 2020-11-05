@@ -32,14 +32,16 @@ class MainMap extends React.Component{
 
     render() {
          const Map = ReactMapboxGl({
-            accessToken: "pk.eyJ1IjoiY3JhdmU0Y29kZSIsImEiOiJja2dvN3VjN3cwOGptMzJwZ3plYmtidjU4In0.HmurhTxMmNKf6fQY9XUbKw"
+            accessToken: process.env.REACT_APP_MAPBOX_API_KEY
         });
 
           const zoom = [8]
         //Must be in longitude, latitude coordinate order   
         return (
-            <div>
+            <div >
+                
                 <Map
+                    className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
                     center={ [-73.985130, 40.758896] }
                     zoom={[14]}
@@ -48,18 +50,25 @@ class MainMap extends React.Component{
                         width: '70vw',
                     }}
                 >
-                <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                    <Feature coordinates={[-73.985130, 40.758896]} />
-                </Layer>
+                    <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+                        <Feature coordinates={[-73.985130, 40.758896]} />
+                        <Feature coordinates={[-74.004821, 40.742051]} />
+                    </Layer>
 
-                <Marker
-                coordinates={[-73.985130, 40.758896]}
-                anchor="bottom">
-                <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
-                </Marker>
+                    <Marker
+                    coordinates={[-73.985130, 40.758896]}
+                    anchor="bottom">
+                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                    </Marker>
+
+                    <Marker
+                    coordinates={[-73.9945, 40.7632]}
+                    anchor="bottom">
+                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                    </Marker>
 
                 </Map>;
-                {/* <div ref={el => this.mapContainer = el} /> */}
+               
             </div>
         )
     }

@@ -130,3 +130,14 @@ footer{
   margin: 10px;
   height: 4em;
 }
+
+
+.main-map{
+  margin: auto
+}
+
+.gridCol img {
+  background-image:url('https://res.cloudinary.com/dfqzcsl8x/image/upload/v1603237135/Project4/blank_leicjd.png');
+  min-width: 200px;
+  min-height: 200px;
+}

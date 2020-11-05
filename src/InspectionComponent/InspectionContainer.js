@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Inspection from './Inspection'
 import uuid from 'react-uuid'
+import Alert from 'react-bootstrap/Alert'
 
 
 class InspectionContainer extends React.Component{
 
-
-
+ 
     render() {
 
         let sortedByDate = this.props.inspections.sort( (numA, numB) =>{
@@ -15,7 +15,11 @@ class InspectionContainer extends React.Component{
         })
 
         let inspectionComponent = sortedByDate.map(inspectionObj => {
-            return <Inspection key={uuid()} inspection={inspectionObj}/>
+            return <Inspection 
+                    key={uuid()} 
+                    inspection={inspectionObj} 
+                    messageFun={this.messageFun}
+                    />
         })
 
         return (

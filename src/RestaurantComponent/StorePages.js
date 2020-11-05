@@ -5,13 +5,15 @@ import RestaurantsContainer from './RestaurantsContainer'
 class StorePages extends React.Component{
 
     state = {
-        i : 0
+        i : 0,
+        lat: 40.742051,
+        lon: -74.004821
     }
 
 
 
   componentDidMount(){
-    fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20`, {
+    fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=0&count=20`, {
         headers: {
         Accept: "application/json",
         "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -26,7 +28,7 @@ class StorePages extends React.Component{
 
 
     nextPage = () => {
-        fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=${this.state.i+20}&count=20`, {
+        fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i+20}&count=20`, {
           headers: {
             Accept: "application/json",
             "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -46,7 +48,7 @@ class StorePages extends React.Component{
     
       
       backPage = () => {
-        fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=${this.state.i-20}&count=20`, {
+        fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i-20}&count=20`, {
           headers: {
             Accept: "application/json",
             "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
