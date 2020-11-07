@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import Inspection from './Inspection'
 import uuid from 'react-uuid'
 import Alert from 'react-bootstrap/Alert'
+import MainMap from '../Home/MainMap';
 
 
 class InspectionContainer extends React.Component{
 
- 
+    state = {
+      show : false
+    }
+
     render() {
 
         let sortedByDate = this.props.inspections.sort( (numA, numB) =>{
@@ -49,6 +53,8 @@ class InspectionContainer extends React.Component{
                         {inspectionComponent}
                     </tbody>
               </table>
+
+              {this.state.show ? <MainMap inspectionArray={this.props.inspections}/> : null }
             </div>
         );
     }

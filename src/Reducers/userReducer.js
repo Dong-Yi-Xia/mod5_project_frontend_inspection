@@ -14,7 +14,7 @@ let initialStateOfUser = {
           ...state,
           user: action.payload.user,
           token: action.payload.token,
-          inspections: [...state.inspections, action.payload.user.inspections]    
+          inspections: [...state.inspections, action.payload.user.inspections] 
       }
 
       case "SET_USER_LOGOUT":
@@ -29,7 +29,7 @@ let initialStateOfUser = {
           ...state,
           user: action.payload.user,
           token: action.payload.token,
-          inspections: [...state.inspections, action.payload.user.inspections],
+          inspections: [...state.inspections, action.payload.user.inspections]
         }
 
       case "SET_INSPECTION_INFO":

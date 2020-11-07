@@ -5,24 +5,6 @@ import AddInspectionForm from './AddInspectionForm'
 
 class Restaurant extends React.Component{
 
-    // state = {
-    //     randomImg : ""
-    // }
-
-
-    // componentDidMount(){
-    //     fetch(`https://api.unsplash.com/photos/?client_id=7SxP1MFnuGox7_47MR8rhH2VUV3lG9VzUoFVbBmNLT8`, {
-    //         method: "GET",
-    //         headers: {
-    //             Authorization: Client-ID 7SxP1MFnuGox7_47MR8rhH2VUV3lG9VzUoFVbBmNLT8
-    //         }
-    //     })
-    //     .then(r => r.json())
-    //     .then(resp => {
-    //         console.log(resp)
-    //     })
-    // }
-
 
 
     render(){

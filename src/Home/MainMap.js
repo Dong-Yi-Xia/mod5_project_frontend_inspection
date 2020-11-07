@@ -1,45 +1,42 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
-// import mapboxgl from 'mapbox-gl';
+import { connect } from 'react-redux'
 
 
 
 class MainMap extends React.Component{
 
-    // state = {
-    //     lng: 5,
-    //     lat: 34,
-    //     zoom: 2
-    // }
- 
-    // componentDidMount() {
-    //     const map = new mapboxgl.Map({
-    //         container: this.mapContainer,
-    //         style: 'mapbox://styles/mapbox/streets-v11',
-    //         center: [this.state.lng, this.state.lat],
-    //         zoom: this.state.zoom
-    //     });
-            
-    //     map.on('move', () => {
-    //         this.setState({
-    //             lng: map.getCenter().lng.toFixed(4),
-    //             lat: map.getCenter().lat.toFixed(4),
-    //             zoom: map.getZoom().toFixed(2)
-    //         });
-    //      })
-    // }
+
 
     render() {
+        console.log(this.props.inspectionArray)
+        
+        let component = this.props.inspectionArray
+        if(component !== undefined) {
+             component.map(inspection => (
+                 console.log(inspection)
+                        // <Marker id={inspection.id} 
+                        //         coordinates={[-73.9777, 40.7615]}
+                        //         anchor="bottom"
+                        // > 
+                        // <button>
+                        //      <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                        //  </button>
+                        // </Marker>
+             ))
+         } 
+
          const Map = ReactMapboxGl({
             accessToken: process.env.REACT_APP_MAPBOX_API_KEY
         });
 
-          const zoom = [8]
+       
         //Must be in longitude, latitude coordinate order   
+      
         return (
             <div >
-                
+             
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
@@ -58,15 +55,13 @@ class MainMap extends React.Component{
                     <Marker
                     coordinates={[-73.985130, 40.758896]}
                     anchor="bottom">
-                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                    <button>
+                        <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
+                    </button>
                     </Marker>
 
-                    <Marker
-                    coordinates={[-73.9945, 40.7632]}
-                    anchor="bottom">
-                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
-                    </Marker>
-
+             
+                    {component}
                 </Map>;
                
             </div>
@@ -74,5 +69,15 @@ class MainMap extends React.Component{
     }
 }
 
-export default MainMap 
+
+let mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        inspectionArray: state.userRR.user.inspections,
+        token: state.userRR.token
+    }
+ }
+ 
+
+export default connect(mapStateToProps)(MainMap)
 
