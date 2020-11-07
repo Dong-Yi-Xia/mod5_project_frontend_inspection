@@ -2,6 +2,7 @@ import React from 'react'
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
+import MapInspection from './MapInspection'
 
 
 
@@ -14,17 +15,10 @@ class MainMap extends React.Component{
         
         let component = this.props.inspectionArray
         if(component !== undefined) {
-             component.map(inspection => (
-                 console.log(inspection)
-                        // <Marker id={inspection.id} 
-                        //         coordinates={[-73.9777, 40.7615]}
-                        //         anchor="bottom"
-                        // > 
-                        // <button>
-                        //      <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
-                        //  </button>
-                        // </Marker>
-             ))
+            component = component.map(inspectionObj => {
+                 console.log(inspectionObj)
+               return <MapInspection id={inspectionObj.id} inspection={inspectionObj}/>
+             })
          } 
 
          const Map = ReactMapboxGl({
@@ -41,7 +35,7 @@ class MainMap extends React.Component{
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
                     center={ [-73.985130, 40.758896] }
-                    zoom={[14]}
+                    zoom={[12]}
                     containerStyle={{
                         height: '70vh',
                         width: '70vw',
