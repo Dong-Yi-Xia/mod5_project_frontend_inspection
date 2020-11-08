@@ -11,13 +11,14 @@ class MainMap extends React.Component{
 
 
     render() {
-        console.log(this.props.inspectionArray)
         
         let component = this.props.inspectionArray
         if(component !== undefined) {
             component = component.map(inspectionObj => {
-                 console.log(inspectionObj)
-               return <MapInspection id={inspectionObj.id} inspection={inspectionObj}/>
+               return <MapInspection id={inspectionObj.id} 
+                        inspection={inspectionObj} 
+                        selectDate={this.props.selectDate}
+                        />
              })
          } 
 
@@ -30,7 +31,7 @@ class MainMap extends React.Component{
       
         return (
             <div >
-             
+               
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
@@ -56,7 +57,7 @@ class MainMap extends React.Component{
 
              
                     {component}
-                </Map>;
+                </Map>
                
             </div>
         )

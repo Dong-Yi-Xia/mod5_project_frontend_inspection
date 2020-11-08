@@ -10,9 +10,9 @@ let initialStateOfRestaruant = {
       case "SET_RESTAURANTS":
       return{
           ...state,
-          restaurants: action.payload.restaurants
-          
+          restaurants: action.payload.restaurants      
       }
+
 
       default:
         return state
