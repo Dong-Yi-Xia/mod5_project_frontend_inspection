@@ -3,12 +3,13 @@ import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
 import MapInspection from './MapInspection'
+import Geolocation from './Geolocation';
 
 
 
 class MainMap extends React.Component{
 
- 
+
 
     render() {
         
@@ -57,11 +58,10 @@ class MainMap extends React.Component{
                     </div>
                     </Marker>
 
-                
-             
                     {component}
                 </Map>
               
+                <Geolocation />
             </div>
         )
     }

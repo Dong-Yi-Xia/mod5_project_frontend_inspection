@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactMapboxGl, { Layer, Marker, Popup } from 'react-mapbox-gl';
+import ReactMapboxGl, { Marker, Popup } from 'react-mapbox-gl';
 
 
 
@@ -29,7 +29,7 @@ class MapInspection extends React.Component{
             <Marker
                 coordinates={[lon, lat]}
                 anchor="bottom">
-                <button className="markerPopup-button" onMouseDown={this.showpop} onMouseLeave={this.closepop}>
+                <button className="markerPopup-button" onClick={this.showpop} onMouseLeave={this.closepop}>
                     <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968345/Project4/Natsu_Dragneel_drviwm.jpg" width="20" height="30"/>
                 </button>
             </Marker>

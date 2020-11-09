@@ -3,7 +3,8 @@
 let initialStateOfUser = {
     user: "",
     token: "",
-    inspections: []
+    inspections: [],
+    mylocation: ""
   }
   
   let userReducer = (state = initialStateOfUser, action) => {
@@ -60,6 +61,11 @@ let initialStateOfUser = {
           inspections: [deletedArray]
         }
       
+        case "SET_MY_LOCATION":
+          return{
+            ...state,
+            mylocation: action.payload
+          }
 
 
       default:

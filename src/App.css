@@ -144,11 +144,14 @@ footer{
 
 .markerPopup {
   width: 30%;
+  z-index: 2;
+  position: absolute;
 }
 
 .markerPopup-button{
   border-radius: 20%;
   border-color: orange;
+  position: relative;
 }
 
 .mylocation-button{
