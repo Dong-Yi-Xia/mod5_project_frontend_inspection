@@ -26,8 +26,10 @@ class HomePage extends React.Component {
       }
 
     handleChange = (evt) => {
+      let newDate = new Date(evt.getTime() - (evt.getTimezoneOffset() * 60000 )).toISOString().split("T")[0]
+
       this.setState({
-        [evt.target.name] : evt.target.value
+        selectDate : newDate
       })
    
     }
@@ -40,12 +42,12 @@ class HomePage extends React.Component {
                 <h1>{this.state.curTime}</h1>
                 <h1>NYC Restaurant Inspection</h1> 
 
-                 <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/>
+                 {/* <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/> */}
 
                 <h3>Welcome {this.props.name}</h3> 
+                <Calendar onChange={this.handleChange}/>
                 <MainMap selectDate={this.state.selectDate}/>
 
-                {/* <Calendar /> */}
             </div>
         )
     }

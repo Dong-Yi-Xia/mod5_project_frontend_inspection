@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
 import MapInspection from './MapInspection'
@@ -8,7 +8,7 @@ import MapInspection from './MapInspection'
 
 class MainMap extends React.Component{
 
-
+ 
 
     render() {
         
@@ -31,7 +31,7 @@ class MainMap extends React.Component{
       
         return (
             <div >
-               
+          
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
@@ -42,23 +42,26 @@ class MainMap extends React.Component{
                         width: '70vw',
                     }}
                 >
-                    <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+                    {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
                         <Feature coordinates={[-73.985130, 40.758896]} />
                         <Feature coordinates={[-74.004821, 40.742051]} />
-                    </Layer>
+                    </Layer> */}
 
-                    <Marker
+                    <Marker 
                     coordinates={[-73.985130, 40.758896]}
                     anchor="bottom">
-                    <button>
+                    <div className="mylocation-border">
+                    <button className="mylocation-button" disabled>
                         <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968347/Project4/Umaru_Doma_jktg1r.jpg" width="20" height="30"/>
                     </button>
+                    </div>
                     </Marker>
 
+                
              
                     {component}
                 </Map>
-               
+              
             </div>
         )
     }
