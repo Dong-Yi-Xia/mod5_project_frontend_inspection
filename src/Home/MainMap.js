@@ -9,6 +9,17 @@ import Geolocation from './Geolocation';
 
 class MainMap extends React.Component{
 
+    state = {
+        longitude: "",
+        latitude: ""
+    }
+
+    componentDidMount(){
+        this.setState({
+            longitude: this.props.mylocation.longitude,
+            latitude: this.props.mylocation.latitude
+        })
+    }
 
 
     render() {
@@ -27,12 +38,16 @@ class MainMap extends React.Component{
             accessToken: process.env.REACT_APP_MAPBOX_API_KEY
         });
 
-       
+      
+      
+        let {longitude, latitude} = this.props.mylocation
+
+ 
         //Must be in longitude, latitude coordinate order   
       
         return (
             <div >
-          
+          <p>{longitude}</p>
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
@@ -72,7 +87,8 @@ let mapStateToProps = (state) => {
     console.log(state)
     return {
         inspectionArray: state.userRR.user.inspections,
-        token: state.userRR.token
+        token: state.userRR.token,
+        mylocation: state.userRR.mylocation
     }
  }
  

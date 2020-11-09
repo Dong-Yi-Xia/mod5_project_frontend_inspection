@@ -28,7 +28,7 @@ class Geolocation extends React.Component {
             // timeout: 5000
         
 
-       console.log(this)
+    //    console.log(this)
         return(
             <div>
                 <p>longitude: {this.state.longitude}</p>
