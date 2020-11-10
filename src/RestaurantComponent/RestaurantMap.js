@@ -2,6 +2,8 @@ import React from 'react'
 import ReactMapboxGl, {  Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
+import StoreMarker from './StoreMarker'
+
 
 class RestaurantMap extends React.Component{
 
@@ -36,13 +38,14 @@ class RestaurantMap extends React.Component{
 
     render() {
         
-
          const Map = ReactMapboxGl({
             accessToken: process.env.REACT_APP_MAPBOX_API_KEY,
             doubleClickZoom: false
         });
-  
-        console.log(this.props.state)
+
+        let component = this.props.restaurantArray.map(restaurantObj => {
+            return <StoreMarker key={restaurantObj.restaurant.id} store={restaurantObj.restaurant}/>
+        })
         //Must be in longitude, latitude coordinate order   
       
         return (
@@ -51,7 +54,7 @@ class RestaurantMap extends React.Component{
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
                     center={ [this.state.lon, this.state.lat] }
-                    zoom={[12]}
+                    zoom={[15]}
                     onDblClick={this.findLocation}
                     containerStyle={{
                         height: '70vh',
@@ -70,6 +73,8 @@ class RestaurantMap extends React.Component{
                     </div>
                     </Marker>
 
+                    {component}
+
                 </Map>
               
             </div>
@@ -81,7 +86,7 @@ class RestaurantMap extends React.Component{
 let mapStateToProps = (state) => {
     console.log(state)
     return {
-        inspectionArray: state.userRR.user.inspections,
+        restaurantArray: state.restaurantRR.restaurants,
         mylocation: state.userRR.mylocation
     }
  }
