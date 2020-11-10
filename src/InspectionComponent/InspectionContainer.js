@@ -8,9 +8,9 @@ import MainMap from '../Home/MainMap';
 
 class InspectionContainer extends React.Component{
 
-    state = {
-      show : false
-    }
+    // state = {
+    //   show : false
+    // }
 
     render() {
 
@@ -54,7 +54,7 @@ class InspectionContainer extends React.Component{
                     </tbody>
               </table>
 
-              {this.state.show ? <MainMap inspectionArray={this.props.inspections}/> : null }
+              {/* {this.state.show ? <MainMap inspectionArray={this.props.inspections}/> : null } */}
             </div>
         );
     }

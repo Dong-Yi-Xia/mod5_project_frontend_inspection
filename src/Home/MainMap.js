@@ -3,7 +3,6 @@ import ReactMapboxGl, { Layer, Feature, Marker, Popup } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
 import MapInspection from './MapInspection'
-import Geolocation from './Geolocation';
 
 
 
@@ -15,12 +14,23 @@ class MainMap extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({
-            longitude: this.props.mylocation.longitude,
-            latitude: this.props.mylocation.latitude
-        })
+        if(navigator.geolocation){
+            navigator.geolocation.watchPosition(position => {
+                this.setState({
+                    longitude: position.coords.longitude,
+                    latitude: position.coords.latitude
+                })
+                this.props.mylocation({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                })
+            })
+        }
     }
 
+    findLocation = (Map, evt) => {
+        console.log(evt.lngLat)
+    }
 
     render() {
         
@@ -37,34 +47,27 @@ class MainMap extends React.Component{
          const Map = ReactMapboxGl({
             accessToken: process.env.REACT_APP_MAPBOX_API_KEY
         });
-
-      
-      
-        let {longitude, latitude} = this.props.mylocation
-
- 
+  
+        console.log(this.state)
         //Must be in longitude, latitude coordinate order   
       
         return (
             <div >
-          <p>{longitude}</p>
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
-                    center={ [-73.985130, 40.758896] }
+                    center={ [this.state.longitude, this.state.latitude] }
                     zoom={[12]}
+                    onClick={this.findLocation}
                     containerStyle={{
                         height: '70vh',
                         width: '70vw',
                     }}
                 >
-                    {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                        <Feature coordinates={[-73.985130, 40.758896]} />
-                        <Feature coordinates={[-74.004821, 40.742051]} />
-                    </Layer> */}
+    
 
                     <Marker 
-                    coordinates={[-73.985130, 40.758896]}
+                    coordinates={[this.state.longitude, this.state.latitude] }
                     anchor="bottom">
                     <div className="mylocation-border">
                     <button className="mylocation-button" disabled>
@@ -76,7 +79,6 @@ class MainMap extends React.Component{
                     {component}
                 </Map>
               
-                <Geolocation />
             </div>
         )
     }
@@ -91,7 +93,18 @@ let mapStateToProps = (state) => {
         mylocation: state.userRR.mylocation
     }
  }
+
+ let mylocation = (info) => {
+    return {
+        type: "SET_MY_LOCATION",
+        payload: info
+    }
+} 
+
+let mdtp = {
+    mylocation
+}
  
 
-export default connect(mapStateToProps)(MainMap)
+export default connect(mapStateToProps, mdtp)(MainMap)
 
