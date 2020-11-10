@@ -28,9 +28,9 @@ class MainMap extends React.Component{
         }
     }
 
-    findLocation = (Map, evt) => {
-        console.log(evt.lngLat)
-    }
+    // findLocation = (Map, evt) => {
+    //     console.log(evt.lngLat)
+    // }
 
     render() {
         
@@ -49,7 +49,7 @@ class MainMap extends React.Component{
             doubleClickZoom: false
         });
   
-        console.log(this.state)
+        
         //Must be in longitude, latitude coordinate order   
       
         return (
@@ -87,7 +87,7 @@ class MainMap extends React.Component{
 
 
 let mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         inspectionArray: state.userRR.user.inspections,
         token: state.userRR.token,

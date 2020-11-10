@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import Weather from './Weather'
 
 class NavBarr extends React.Component{
 
@@ -37,6 +38,7 @@ class NavBarr extends React.Component{
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                     <Button variant="outline-info">Search</Button>
                 </Form> */}
+                <Weather />
             </Navbar>
         )
     }
