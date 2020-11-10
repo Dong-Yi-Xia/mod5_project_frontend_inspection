@@ -44,7 +44,7 @@ class StorePages extends React.Component{
   }
 
       firstPage =() => {
-          fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=0&count=20`, {
+          fetch(`https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=0&count=20`, {
             headers: {
             Accept: "application/json",
             "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -57,7 +57,7 @@ class StorePages extends React.Component{
       }
 
     nextPage = () => {
-        fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i+20}&count=20`, {
+        fetch(`https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i+20}&count=20`, {
           headers: {
             Accept: "application/json",
             "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -77,7 +77,7 @@ class StorePages extends React.Component{
     
       
       backPage = () => {
-        fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i-20}&count=20`, {
+        fetch(`https://developers.zomato.com/api/v2.1/search?lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i-20}&count=20`, {
           headers: {
             Accept: "application/json",
             "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
@@ -99,7 +99,7 @@ class StorePages extends React.Component{
       console.log(this.state)
         return( 
             <div>
-              <h1 id="top">NYC Restaurant Lisiting </h1>
+              <h1 id="top"> Restaurant Lisiting </h1>
               <RestaurantMap updateLocationFun={this.updateLocationFun}/>
                 <RestaurantsContainer />
 
