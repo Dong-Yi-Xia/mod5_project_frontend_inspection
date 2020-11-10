@@ -1,14 +1,27 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import RestaurantsContainer from './RestaurantsContainer'
+import RestaurantMap from './RestaurantMap'
+
 
 class StorePages extends React.Component{
 
     state = {
         i : 0,
-        lat: "",
-        lon: ""
+        lat: 0,
+        lon: 0
     }
+
+
+  updateLocationFun = (info) => {
+      this.setState({
+            i : 0,
+            lat: info.lat,
+            lon: info.lng
+        })
+      this.firstPage()
+  }  
+
 
 
   componentDidMount(){
@@ -22,23 +35,26 @@ class StorePages extends React.Component{
               latitude: position.coords.latitude,
               longitude: position.coords.longitude
           })
+          this.firstPage()
+          this.nextPage()
+          this.backPage()
+          
+        })
+     }
+  }
+
+      firstPage =() => {
           fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=0&count=20`, {
-              headers: {
-              Accept: "application/json",
-              "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
+            headers: {
+            Accept: "application/json",
+            "User-Key": process.env.REACT_APP_ZOMATO_API_KEY
             }
           })
           .then(r => r.json())
           .then(resp => {
             this.props.setRestaurants(resp)
           })
-          this.nextPage()
-          this.backPage()
-      })
-    }
-  }
-
-
+      }
 
     nextPage = () => {
         fetch(`https://developers.zomato.com/api/v2.1/search?q=nyc&lat=${this.state.lat}&lon=${this.state.lon}&sort=real_distance&start=${this.state.i+20}&count=20`, {
@@ -80,9 +96,11 @@ class StorePages extends React.Component{
 
 
     render(){
+      console.log(this.state)
         return( 
             <div>
               <h1 id="top">NYC Restaurant Lisiting </h1>
+              <RestaurantMap updateLocationFun={this.updateLocationFun}/>
                 <RestaurantsContainer />
 
                 {this.state.i === 0 
@@ -105,7 +123,8 @@ class StorePages extends React.Component{
 let mstp = (state) => {
   console.log(state)
   return{
-    location: state.userRR.user.location
+    location: state.userRR.user.location,
+    newlocation: state.userRR.user.location
   }
 }
 

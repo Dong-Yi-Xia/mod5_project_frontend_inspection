@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
 
+
 class RestaurantsContainer extends React.Component{
 
      
@@ -17,11 +18,13 @@ class RestaurantsContainer extends React.Component{
         })
 
         return(
+            <>
             <Container >
                 <Row className="gridRow">
                     {arrayComponent}
                 </Row>
             </Container>
+            </>
         )
     }
 }

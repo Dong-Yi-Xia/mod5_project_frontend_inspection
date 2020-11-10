@@ -67,6 +67,14 @@ let initialStateOfUser = {
             mylocation: action.payload
           }
 
+        case "SET_NEW_LOCATION":
+          return{
+            ...state,
+            mylocation: {
+              latitude: action.payload.lat,
+              longitude: action.payload.lng
+            }
+          }  
 
       default:
         return state

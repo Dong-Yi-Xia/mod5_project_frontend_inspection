@@ -2,54 +2,47 @@ import React from 'react'
 import ReactMapboxGl, {  Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
-import MapInspection from './MapInspection'
 
-
-
-class MainMap extends React.Component{
+class RestaurantMap extends React.Component{
 
     state = {
-        longitude: "",
-        latitude: ""
+        lat: "",
+        lon: ""
     }
+
 
     componentDidMount(){
         if(navigator.geolocation){
-            navigator.geolocation.watchPosition(position => {
-                this.setState({
-                    longitude: position.coords.longitude,
-                    latitude: position.coords.latitude
-                })
-                this.props.mylocation({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                })
+        navigator.geolocation.watchPosition(position => {
+            this.setState({
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
             })
+        })
         }
     }
 
+    
+
     findLocation = (Map, evt) => {
-        console.log(evt.lngLat)
+        // console.log(evt.lngLat)
+        this.setState({
+            lat: evt.lngLat.lat,
+            lon: evt.lngLat.lng
+        })
+        this.props.newlocation(evt.lngLat)
+        this.props.updateLocationFun(evt.lngLat)
     }
 
     render() {
         
-        let component = this.props.inspectionArray
-        if(component !== undefined) {
-            component = component.map(inspectionObj => {
-               return <MapInspection id={inspectionObj.id} 
-                        inspection={inspectionObj} 
-                        selectDate={this.props.selectDate}
-                        />
-             })
-         } 
 
          const Map = ReactMapboxGl({
             accessToken: process.env.REACT_APP_MAPBOX_API_KEY,
             doubleClickZoom: false
         });
   
-        console.log(this.state)
+        console.log(this.props.state)
         //Must be in longitude, latitude coordinate order   
       
         return (
@@ -57,7 +50,7 @@ class MainMap extends React.Component{
                 <Map
                     className="main-map"
                     style="mapbox://styles/mapbox/streets-v9"
-                    center={ [this.state.longitude, this.state.latitude] }
+                    center={ [this.state.lon, this.state.lat] }
                     zoom={[12]}
                     onDblClick={this.findLocation}
                     containerStyle={{
@@ -68,7 +61,7 @@ class MainMap extends React.Component{
     
 
                     <Marker 
-                    coordinates={[this.state.longitude, this.state.latitude] }
+                    coordinates={[this.state.lon, this.state.lat] }
                     anchor="bottom">
                     <div className="mylocation-border">
                     <button className="mylocation-button" disabled>
@@ -77,7 +70,6 @@ class MainMap extends React.Component{
                     </div>
                     </Marker>
 
-                    {component}
                 </Map>
               
             </div>
@@ -90,22 +82,19 @@ let mapStateToProps = (state) => {
     console.log(state)
     return {
         inspectionArray: state.userRR.user.inspections,
-        token: state.userRR.token,
         mylocation: state.userRR.mylocation
     }
  }
 
- let mylocation = (info) => {
-    return {
-        type: "SET_MY_LOCATION",
-        payload: info
-    }
-} 
+ let newlocation = (location) => {
+     return {
+         type: "SET_NEW_LOCATION",
+         payload: location
+     }
+ }
 
-let mdtp = {
-    mylocation
-}
- 
+ let mdtp = {
+    newlocation
+ }
 
-export default connect(mapStateToProps, mdtp)(MainMap)
-
+export default connect(mapStateToProps, mdtp)(RestaurantMap)
