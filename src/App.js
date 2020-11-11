@@ -11,7 +11,6 @@ import RegisterForm from './LogInComponent/RegisterForm'
 import HomePage from './Home/HomePage'
 import NotFound from './Main/NotFound';
 import Footer from './Main/Footer'
-import Weather from './Main/Weather'
 
 
 
@@ -44,7 +43,6 @@ class App extends React.Component {
 
         <header>
           <NavBarr/>
-          <Weather/>
         </header>
 
         <main>

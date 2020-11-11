@@ -99,7 +99,7 @@ class StorePages extends React.Component{
       console.log(this.state)
         return( 
             <div>
-              <h1 id="top"> Restaurant Lisiting </h1>
+              <h1 id="top"> Restaurant Listing </h1>
               <RestaurantMap updateLocationFun={this.updateLocationFun}/>
                 <RestaurantsContainer />
 

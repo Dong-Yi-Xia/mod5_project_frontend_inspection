@@ -41,12 +41,13 @@ class HomePage extends React.Component {
         return(
             <div>
                 <h1>{this.state.curTime}</h1>
-                <h1>NYC Restaurant Inspection</h1> 
+                <h1>My Restaurant Inspection</h1> 
 
                  {/* <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/> */}
 
                 <h3>Welcome {this.props.name}</h3> 
                 <Calendar onChange={this.handleChange}/>
+                <div id="openweathermap-widget-11"></div>
                 <MainMap selectDate={this.state.selectDate}/>
 
             </div>
