@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import MapInspection from './MapInspection'
 
 
-
 class MainMap extends React.Component{
 
     state = {
@@ -37,7 +36,7 @@ class MainMap extends React.Component{
         let component = this.props.inspectionArray
         if(component !== undefined) {
             component = component.map(inspectionObj => {
-               return <MapInspection id={inspectionObj.id} 
+               return <MapInspection key={inspectionObj.id} 
                         inspection={inspectionObj} 
                         selectDate={this.props.selectDate}
                         />
