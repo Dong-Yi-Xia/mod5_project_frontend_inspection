@@ -64,7 +64,7 @@ class ReportForm extends React.Component{
                         <option value="F">F</option>
                     </select>
                     
-                    <textarea type="text" name="note" value={this.state.note} onChange={this.handleChange} required/>
+                    <textarea type="text" name="note" value={this.state.note} onChange={this.handleChange} required rows="10" cols="50"/>
                     <Button variant="primary" type="submit"> Save Changes </Button>
                 </form>
             </div>

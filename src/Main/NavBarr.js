@@ -19,7 +19,7 @@ class NavBarr extends React.Component{
     render(){
         return(
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="/">RI</Navbar.Brand>
+                <Navbar.Brand href="/">URI</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
 

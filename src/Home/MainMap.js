@@ -61,7 +61,7 @@ class MainMap extends React.Component{
                     onDblClick={this.findLocation}
                     containerStyle={{
                         height: '70vh',
-                        width: '70vw',
+                        width: '85vw',
                     }}
                 >
     

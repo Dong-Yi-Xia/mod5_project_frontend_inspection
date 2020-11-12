@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import MainMap from './MainMap'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
 class HomePage extends React.Component {
@@ -40,8 +43,12 @@ class HomePage extends React.Component {
                   <h3>Welcome Back, Inspector {this.props.name}</h3> :
                   <h3>Who might you are be???</h3>
                 }
-                <Calendar onChange={this.handleChange}/>
-                <div id="openweathermap-widget-11"></div>
+                <Container className="header-widget">
+                  <Row>
+                    <Col><div id="openweathermap-widget-11"></div> </Col>
+                    <Col > <Calendar className="header_calender" onChange={this.handleChange}/> </Col>  
+                  </Row>
+                </Container>
                 <MainMap selectDate={this.state.selectDate}/>
 
             </div>
