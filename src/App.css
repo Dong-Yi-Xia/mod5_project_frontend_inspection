@@ -177,3 +177,8 @@ footer{
     transition: transform .4s ease;
   }
 }
+
+.timekeeper{
+  margin: 20px;
+  color: white;
+}

@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Weather from '../Home/Weather'
+import TimeKeeper from '../Home/TimeKeeper'
 
 class NavBarr extends React.Component{
 
@@ -26,7 +26,7 @@ class NavBarr extends React.Component{
                     {this.props.token ? 
                     <>
                     <Nav.Link href="/restaurants">Restaurants</Nav.Link>
-                    <Nav.Link href="inspections">UpComing-Inspections</Nav.Link>
+                    <Nav.Link href="inspections">Schedule</Nav.Link>
                     <Nav.Link onClick={this.handleLogout} href="login"> LogOut </Nav.Link>
                     </>
                     :
@@ -38,6 +38,7 @@ class NavBarr extends React.Component{
                     <Button variant="outline-info">Search</Button>
                 </Form> */}
               
+                <TimeKeeper />
                 <div id="openweathermap-widget-19"></div>
                  
             </Navbar>

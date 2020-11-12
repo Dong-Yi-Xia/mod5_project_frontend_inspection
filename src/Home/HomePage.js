@@ -14,21 +14,13 @@ class HomePage extends React.Component {
     }
 
     state = {
-        curTime: "",
         selectDate: this.setDate()
     }
 
-    componentDidMount() {
-        setInterval(() => {
-          this.setState({
-            curTime : new Date().toLocaleString()
-          })
-        }, 1000)
-      }
 
     handleChange = (evt) => {
       let newDate = new Date(evt.getTime() - (evt.getTimezoneOffset() * 60000 )).toISOString().split("T")[0]
-
+      // "year-month-day"
       this.setState({
         selectDate : newDate
       })
@@ -38,15 +30,15 @@ class HomePage extends React.Component {
     render(){
         // let today = new Date().toISOString().slice(0, 10)
         // let today = new Date().toLocaleDateString()
+        
         return(
             <div>
-                <h1>{this.state.curTime}</h1>
-                <h1>My Restaurant Inspection</h1> 
+                <h1>UNDERCOVER RESTAURANT INSPECTOR</h1> 
 
                  {/* <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/> */}
                 {this.props.name ? 
-                  <h3>Welcome {this.props.name}</h3> :
-                  <h3>Who are you?</h3>
+                  <h3>Welcome Back, Inspector {this.props.name}</h3> :
+                  <h3>Who might you are be???</h3>
                 }
                 <Calendar onChange={this.handleChange}/>
                 <div id="openweathermap-widget-11"></div>
