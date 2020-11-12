@@ -86,7 +86,14 @@ footer{
 }
 
 .nextButton,.backButton{
-  width: 40%;
+  width: 30%;
+  height: 30px;
+  border-radius: 40%;
+}
+
+.nextButton:hover, .backButton:hover{
+  background-color: rgb(247, 194, 80);
+  font-size: 1.2em;
 }
 
 .nextButton{
@@ -206,4 +213,14 @@ footer{
 
 .footer a{
   margin-right: 20px;
+}
+
+.homepagetitle h1{
+  background-color: cornsilk;
+  font-size: 3em;
+  font-family: monospace;
+}
+
+.homepagetitle {
+  background-color: cornsilk;
 }

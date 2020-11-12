@@ -36,6 +36,7 @@ class HomePage extends React.Component {
         
         return(
             <div className="mainbody">
+              <div className="homepagetitle">
                 <h1>UNDERCOVER RESTAURANT INSPECTOR</h1> 
 
                  {/* <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/> */}
@@ -43,6 +44,7 @@ class HomePage extends React.Component {
                   <h3>Welcome Back, Inspector {this.props.name}</h3> :
                   <h3>Who might you are be???</h3>
                 }
+               </div> 
                 <Container className="header-widget">
                   <Row>
                     <Col><div id="openweathermap-widget-11"></div> </Col>
