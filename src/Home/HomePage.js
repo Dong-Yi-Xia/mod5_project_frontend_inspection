@@ -35,7 +35,7 @@ class HomePage extends React.Component {
         // let today = new Date().toLocaleDateString()
         
         return(
-            <div>
+            <div className="mainbody">
                 <h1>UNDERCOVER RESTAURANT INSPECTOR</h1> 
 
                  {/* <input type="date" name="selectDate" value={this.state.selectDate} onChange={this.handleChange}/> */}

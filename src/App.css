@@ -78,20 +78,23 @@ footer{
   margin: auto;
   border: solid 2px black;
   padding: 5%;
+  background-color: antiquewhite;
 }
 
 .registerSection{
   margin: 10px;
 }
 
+.nextButton,.backButton{
+  width: 40%;
+}
+
 .nextButton{
   float: right;
-  width: 40%;
 }
 
 .backButton{
   float: left;
-  width: 40%;
 }
 
 .gridCol {
@@ -181,4 +184,26 @@ footer{
 
 .react-calendar.header_calender {
   box-shadow: 5px -5px 50px  darkgray;
+}
+
+.card-body{
+  background-image: url('https://res.cloudinary.com/dfqzcsl8x/image/upload/v1605209635/Project4/wood_eynexc.jpg');
+}
+
+.card-body p {
+  color: lightcyan;
+}
+
+.card-body h3 {
+  color: aliceblue;
+  font-family: 'Goldman';
+}
+
+.App{
+  background: url('https://res.cloudinary.com/dfqzcsl8x/image/upload/v1605209188/Project4/ramen_rq3a1a.png') repeat center center fixed;
+
+}
+
+.footer a{
+  margin-right: 20px;
 }

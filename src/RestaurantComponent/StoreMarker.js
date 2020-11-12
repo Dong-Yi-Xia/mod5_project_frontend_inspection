@@ -30,7 +30,7 @@ class StoreMarker extends React.Component{
                 coordinates={[longitude, latitude]}
                 anchor="bottom">
                 <button className="markerPopup-button" onClick={this.showpop} onMouseLeave={this.closepop}>
-                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1602968345/Project4/Natsu_Dragneel_drviwm.jpg" width="20" height="30"/>
+                    <img src="https://res.cloudinary.com/dfqzcsl8x/image/upload/v1605208901/Project4/store_icon_xpizng.png" width="20" height="30"/>
                 </button>
             </Marker>
 

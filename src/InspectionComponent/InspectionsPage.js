@@ -12,7 +12,7 @@ class InspectionsPage extends React.Component{
         })
 
         return(
-            <div>
+            <div className="mainbody">
                 <h2>My Schedule Book</h2>
                 {inspectionComponent}
             </div>

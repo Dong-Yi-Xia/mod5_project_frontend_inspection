@@ -96,9 +96,9 @@ class StorePages extends React.Component{
 
 
     render(){
-      console.log(this.state)
+      // console.log(this.state)
         return( 
-            <div>
+            <div className="mainbody">
               <h1 id="top"> Restaurant Listing </h1>
               <RestaurantMap updateLocationFun={this.updateLocationFun}/>
                 <RestaurantsContainer />
