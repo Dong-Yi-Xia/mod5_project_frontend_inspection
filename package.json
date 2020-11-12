@@ -1,7 +1,7 @@
 {
   "name": "mod5_project_frontend_inspection",
   "version": "0.1.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://mod5restaurants-api.herokuapp.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
