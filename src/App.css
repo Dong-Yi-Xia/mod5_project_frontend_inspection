@@ -224,3 +224,21 @@ footer{
 .homepagetitle {
   background-color: cornsilk;
 }
+
+.header-image {
+  background-image: url("https://res.cloudinary.com/dfqzcsl8x/image/upload/v1605275538/Project4/knife_p2lbva.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  width: 100%;
+  height: 100px;
+  /* overflow: hidden; */
+}
+
+.header-image h1{
+  position: absolute;
+  color: white;
+  font-size: 2.5em;
+  padding: 20px;
+}
+
