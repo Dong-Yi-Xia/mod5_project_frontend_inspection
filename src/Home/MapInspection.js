@@ -59,7 +59,7 @@ class MapInspection extends React.Component{
     }
 
     render() {
-       console.log(this.props.selectDate)
+    //    console.log(this.props.selectDate)
 
         // let {lat, lon} = this.props.inspection.restaurant
         return (

@@ -70,7 +70,7 @@ class AddReportForm extends React.Component{
 }
 
 let mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         token: state.userRR.token,
         inspection: state.reportRR.currentInspection

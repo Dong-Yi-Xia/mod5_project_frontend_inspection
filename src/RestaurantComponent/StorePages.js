@@ -121,7 +121,7 @@ class StorePages extends React.Component{
 }
 
 let mstp = (state) => {
-  console.log(state)
+  // console.log(state)
   return{
     location: state.userRR.user.location,
     newlocation: state.userRR.user.location

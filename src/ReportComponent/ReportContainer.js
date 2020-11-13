@@ -20,7 +20,7 @@ class ReportContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         reports: state.reportRR.reports
     }

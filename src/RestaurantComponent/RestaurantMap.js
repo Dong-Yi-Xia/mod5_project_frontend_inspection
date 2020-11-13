@@ -83,7 +83,7 @@ class RestaurantMap extends React.Component{
 
 
 let mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         restaurantArray: state.restaurantRR.restaurants,
         mylocation: state.userRR.mylocation

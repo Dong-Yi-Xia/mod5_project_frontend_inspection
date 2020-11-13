@@ -37,7 +37,7 @@ class App extends React.Component {
 
   
   render(){
-  console.log(localStorage)
+  // console.log(localStorage)
     return (
       <div className="App">
 
@@ -66,7 +66,7 @@ class App extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-   console.log(state)
+  //  console.log(state)
 }
 
 

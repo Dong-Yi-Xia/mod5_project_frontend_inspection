@@ -27,7 +27,7 @@ class AddInspectionForm extends React.Component{
         // }
 
         evt.preventDefault()
-        console.log(this)
+        // console.log(this)
         // console.log(this.props.restaurantInfo)
         fetch('/inspections', {
             method: "POST",
