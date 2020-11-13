@@ -23,7 +23,8 @@ class LoginForm extends React.Component{
         fetch("/login", {
             method: "POST",
             headers: {
-                "Content-Type": "Application/json"
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 username: this.state.username,
