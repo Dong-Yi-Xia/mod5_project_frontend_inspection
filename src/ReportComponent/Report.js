@@ -9,7 +9,7 @@ class Report extends React.Component {
 
     handleDelete = (evt) =>{
         console.log("been clicked")
-        fetch("/reports/delete", {
+        fetch("https://mod5restaurants-api.herokuapp.com/reports/delete", {
             method: "DELETE",
             headers: {
                 "Content-Type": "Application/json",

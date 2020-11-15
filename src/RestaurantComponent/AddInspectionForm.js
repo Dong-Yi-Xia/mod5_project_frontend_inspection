@@ -29,7 +29,7 @@ class AddInspectionForm extends React.Component{
         evt.preventDefault()
         // console.log(this)
         // console.log(this.props.restaurantInfo)
-        fetch('/inspections', {
+        fetch('https://mod5restaurants-api.herokuapp.com/inspections', {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",

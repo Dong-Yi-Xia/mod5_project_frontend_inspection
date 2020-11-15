@@ -20,7 +20,7 @@ class ReportForm extends React.Component{
 
     handleSubmit = (evt) => {
         evt.preventDefault()
-        fetch("/reports", {
+        fetch("https://mod5restaurants-api.herokuapp.com/reports", {
             method: "PATCH",
             headers: {
                 "Content-Type": "Application/json",
