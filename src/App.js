@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount(){
     if(localStorage.token){
-      fetch("/keep_logged_in",{
+      fetch("https://mod5restaurants-api.herokuapp.com/keep_logged_in",{
         method: "GET",
         headers: {
           "Authorization": localStorage.token
