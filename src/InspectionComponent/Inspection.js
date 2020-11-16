@@ -49,7 +49,7 @@ class Inspection extends React.Component{
 
 
     handleDelete = (evt) => {
-        fetch('inspections', {
+        fetch('https://mod5restaurants-api.herokuapp.com/inspections', {
             method: "DELETE",
             headers: {
                 "Content-Type": "Application/json",
