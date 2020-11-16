@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-class HomePage extends React.Component {
+class Home extends React.Component {
 
     setDate = () => {
       let date = new Date();
@@ -63,4 +63,4 @@ let mapStateToProps = (state) => {
     }
  }
 
-export default connect(mapStateToProps)(HomePage)
+export default connect(mapStateToProps)(Home)

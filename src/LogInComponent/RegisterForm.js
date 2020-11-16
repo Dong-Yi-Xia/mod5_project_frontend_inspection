@@ -22,7 +22,7 @@ class RegisterForm extends React.Component{
 
     handleSubmit = (evt) => {
         evt.preventDefault()
-        fetch('/users', {
+        fetch('https://mod5restaurants-api.herokuapp.com/users', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

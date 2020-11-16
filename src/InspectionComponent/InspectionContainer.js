@@ -1,9 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import Inspection from './Inspection'
 import uuid from 'react-uuid'
-import Alert from 'react-bootstrap/Alert'
-import MainMap from '../Home/MainMap';
+
 
 
 class InspectionContainer extends React.Component{

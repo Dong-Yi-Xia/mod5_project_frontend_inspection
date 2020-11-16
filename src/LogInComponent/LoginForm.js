@@ -20,7 +20,7 @@ class LoginForm extends React.Component{
 
     handleSubmit = (evt) => {
         evt.preventDefault()
-        fetch("/login", {
+        fetch("https://mod5restaurants-api.herokuapp.com/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

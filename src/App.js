@@ -8,7 +8,7 @@ import InspectionsPage from './InspectionComponent/InspectionsPage'
 import NavBarr from './Main/NavBarr'
 import LoginForm from './LogInComponent/LoginForm'
 import RegisterForm from './LogInComponent/RegisterForm'
-import HomePage from './Home/HomePage'
+import Home from './Home/Home'
 import NotFound from './Main/NotFound';
 import Footer from './Main/Footer'
 
@@ -47,7 +47,7 @@ class App extends React.Component {
 
         <main>
           <Switch>
-            <Route  path="/" exact component={HomePage} />
+            <Route  path="/" exact component={Home} />
             <Route  path="/login" exact component={LoginForm} />
             <Route  path="/register" exact component={RegisterForm} />
             <Route  path="/inspections" exact component={InspectionsPage} />
@@ -65,9 +65,6 @@ class App extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
-  //  console.log(state)
-}
 
 
 let setUserInfo = (userInfo) =>{
@@ -82,4 +79,4 @@ let mapDispatchToProps = {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

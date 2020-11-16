@@ -13,7 +13,7 @@ class Restaurant extends React.Component{
 
         // console.log(this.props.restaurant.restaurant)
         let {name, thumb, cuisines} = this.props.restaurant.restaurant
-        let {address, latitude, longitude} = this.props.restaurant.restaurant.location
+        let {address} = this.props.restaurant.restaurant.location
         return(
             <>
             <Col className="gridCol" >   

@@ -28,7 +28,7 @@ class Inspection extends React.Component{
 
     handleSubmit= (evt) => {
         evt.preventDefault()
-        fetch('/inspections', {
+        fetch('https://mod5restaurants-api.herokuapp.com/inspections', {
             method: "PATCH",
             headers: {
                 "Content-Type": "Application/json",
